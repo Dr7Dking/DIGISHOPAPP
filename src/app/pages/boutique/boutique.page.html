@@ -1,0 +1,133 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-tabs>
+        <ion-tab-bar slot="top">   
+        <ion-tab-button >
+          <ion-title> {{loadedBoutique.nomBoutique}} </ion-title>
+        </ion-tab-button>
+        <ion-tab-button (click)="openCart()">
+            <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+            <ion-icon name="cart"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="openCompte()">
+            <ion-icon name="person"></ion-icon>
+        </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+   
+              <ion-card>
+      
+                   <ion-card-header>
+                      <ion-card-title><h5>Bienvenue Chez <strong>{{loadedBoutique.nomBoutique}}</strong> </h5></ion-card-title>
+                   </ion-card-header>
+                 
+                    <ion-card>
+                        <ion-toolbar>
+                            <ion-tabs>
+                              <ion-tab-bar slot="bottom">
+                                
+                                <ion-tab-button >
+                                 
+                                  <ion-label (click)="openReference()"> Référence </ion-label>
+                                  <ion-progress-bar value=""></ion-progress-bar>
+                                </ion-tab-button>
+                        
+                                <ion-tab-button >
+                                  
+                                  <ion-label (click)="openProduits()">Prouduits</ion-label>
+                                </ion-tab-button>
+                        
+                                <ion-tab-button >
+                                  
+                                  <ion-label (click)="openNegocier()">Negocier</ion-label>
+                                </ion-tab-button>
+                              </ion-tab-bar>
+                            
+                            </ion-tabs>
+                          </ion-toolbar>
+                    </ion-card>
+                    <ion-card-header>
+                    <ion-img [src]="loadedBoutique.image"></ion-img>
+                    <ion-card-subtitle>Contact :(+237) {{loadedBoutique.telephoneBoutique}}</ion-card-subtitle>
+                    <ion-card-title><h4>Boutique de {{loadedBoutique.description}} </h4></ion-card-title>
+      
+                </ion-card-header>
+              </ion-card>
+      
+              
+                <ion-card-content>
+                  Situé à {{loadedBoutique.adressBoutique}} juste en face de l'Institut Polyvalent Nanfang (IPV),
+                  <strong>{{loadedBoutique.nomBoutique}}</strong> la référence des produits de qualité en matière de Sapelogie, Sapé comme jamais...
+                </ion-card-content>
+
+                <ion-card>
+                  <ion-toolbar>
+                      <ion-tabs>
+                        <ion-tab-bar slot="bottom">
+                          
+                          <ion-tab-button >
+                           
+                            <button ion-button (click)="callNow('697978048')">Call Now</button>
+                            
+                          </ion-tab-button>
+                  
+                          <ion-tab-button >
+                            
+                            <ion-label (click)="sendSms('697978048')">Envoyer un message</ion-label>
+                          </ion-tab-button>
+                  
+                        </ion-tab-bar>
+                      
+                      </ion-tabs>
+                    </ion-toolbar>
+              </ion-card>
+          
+                <ion-card *ngFor="let p of produits">
+                    <div *ngFor="let cat of items" class="category-block">
+                              <ion-card *ngFor="let product of cat.products">
+                                <ion-card-header>
+                                  <ion-card-title>
+                                    <p text-center>  {{ p.nomProduit }} - ${{ p.prixPubliProduit }}</p>
+                                  </ion-card-title>
+                                  <ion-card-content>
+                                     
+                                              <img src="https://digishopherokubackend.herokuapp.com/photoproduit/{{p.idProduit}}"/>
+                                          
+      
+                                    <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                                  </ion-card-content>
+                                </ion-card-header>
+                              </ion-card>
+                     
+                     </div> 
+                      
+                </ion-card>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button (click)="openBoutiques()">
+            <ion-icon name="basket"></ion-icon>
+            <ion-label>Boutiques</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button (click)="openHome()">
+            <ion-icon name="home"></ion-icon>
+            <ion-label>Accueil</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button (click)="openParametres()">
+            <ion-icon name="settings"></ion-icon>
+            <ion-label>Reglages</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      
+      </ion-tabs>
+    </ion-toolbar>
+  </ion-footer>

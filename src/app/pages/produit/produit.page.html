@@ -1,0 +1,159 @@
+
+
+<!--
+
+<ion-header>
+    <ion-toolbar color="">
+        <ion-tabs>
+
+            <ion-tab-bar slot="top">
+              <ion-menu-button color="primary"></ion-menu-button>
+              <ion-tab-button (click)="openAccount()">
+                <ion-icon name="person"></ion-icon>
+              </ion-tab-button>
+          
+             <ion-tab-button (click)="openCart()">
+                  <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+                  <ion-icon name="cart"></ion-icon>
+              </ion-tab-button>
+            
+              <ion-tab-button (click)="openSwitch()">
+                <ion-icon name="switch"></ion-icon>
+              </ion-tab-button>
+            </ion-tab-bar>
+          
+          </ion-tabs> 
+
+    </ion-toolbar>
+</ion-header>
+
+  
+<ion-content>
+   
+    <ion-card *ngFor="let p of produits">
+        
+                  
+        <ion-card-header>
+                <ion-card-title>
+                <p text-center>  {{ p.nomProduit }} - ${{ p.prixPubliProduit }}</p>
+                </ion-card-title>
+                <ion-card-content >
+                
+                  <ion-slides autoplay="300" pager>
+                      <ion-slide *ngFor = "let number of [1,2,3,4]"> 
+                        <img src="./assets/images/{{number}}.png" />
+                      </ion-slide>
+                  </ion-slides>
+                  <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                </ion-card-content>
+        </ion-card-header>
+    
+    </ion-card> 
+    <ion-card   >
+              <p text-center>Produits associes</p>
+              <ion-slides  autoplay="5000" loop="true" speed="300" pager="true" display="flex" flex-direction="column" width="100%">
+                  <ion-slide *ngFor = "let number of [1,2,3,4]"> 
+                      <img src="./assets/images/{{number}}.png" />
+                  </ion-slide>
+              </ion-slides>
+    
+    </ion-card>
+</ion-content>
+
+
+
+
+
+<ion-content padding=''>
+    <p><b><strong><h1 text-center>DIGISHOP</h1></strong></b></p>
+    <ion-searchbar (ionInput)="filterProduits($event.target.value)"></ion-searchbar>
+    <h6 text-center>Digishop disponible en: <a href="#">English</a></h6>
+    <ion-card *ngFor="let p of produits">
+      ----
+       <div *ngFor="let cat of items" class="category-block">
+
+            <ion-row no-padding class="category-banner">
+              <ion-col text-left button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
+             <h3 text-center> {{ cat.shop }}</h3>
+              </ion-col>
+            </ion-row>
+            
+            <ion-slides [options]="sliderConfig"> 
+              <ion-slide *ngFor="let product of cat.products"> 
+                <div *ngIf="cat.expanded"> 
+                
+                  
+                    <ion-card-header>
+                      <ion-card-title>
+                        <p text-center>  {{ p.nomProduit }} - ${{ p.prixPubliProduit }}</p>
+                      </ion-card-title>
+                      <ion-card-content>
+      
+                                             
+                      <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                      </ion-card-content>
+                    </ion-card-header>
+                  
+           
+               </div> 
+           </ion-slide> 
+            </ion-slides> 
+         
+          </div> 
+      
+    </ion-card>
+
+</ion-content>
+
+-->
+<ion-content padding=''>
+    <p><b><strong><h1 text-center>DIGISHOP</h1></strong></b></p>
+    <ion-searchbar (ionInput)="filterProduits($event.target.value)"></ion-searchbar>
+    <h6 text-center>Digishop disponible en: <a href="#">English</a></h6>
+    <ion-card *ngFor="let p of produits">
+        <div *ngFor="let cat of items" class="category-block">
+                  <ion-card *ngFor="let product of cat.products">
+                    <ion-card-header>
+                      <ion-card-title>
+                        <p text-center>  {{ p.nomProduit }} - ${{ p.prixPubliProduit }}</p>
+                      </ion-card-title>
+                      <ion-card-content>
+                          <ion-slides  autoplay="5000" loop="true" speed="30" pager="true" display="flex" flex-direction="column" width="100%">
+                              <ion-slide *ngFor = "let number of [1,2,3,4]"> 
+                                  <img src="./assets/images/{{number}}.png" />
+                              </ion-slide>
+                          </ion-slides>
+                        <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                      </ion-card-content>
+                    </ion-card-header>
+                  </ion-card>
+         
+         </div> 
+          
+      </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button (click)="openShops()">
+          <ion-icon name="basket"></ion-icon>
+          <ion-label>Boutiques</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button (click)="openHome()">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Accueil</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button (click)="openReglages()">
+          <ion-icon name="settings"></ion-icon>
+          <ion-label>Reglages</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

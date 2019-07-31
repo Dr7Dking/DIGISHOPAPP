@@ -1,0 +1,118 @@
+<ion-header >
+    <ion-toolbar>
+      <ion-tabs>
+          <ion-tab-bar slot="top">   
+          <ion-tab-button (click)="openCart()">
+            <ion-title> {{loadedBoutique.nomBoutique}} </ion-title>
+          </ion-tab-button>
+          <ion-tab-button (click)="openCart()">
+                <ion-icon name="cart"></ion-icon>
+          </ion-tab-button>
+          <ion-tab-button (click)="openAccount()">
+              <ion-icon name="person"></ion-icon>
+          </ion-tab-button>
+          </ion-tab-bar>
+      </ion-tabs> 
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding=''>
+    <ion-card>
+        <ion-card>
+            <ion-toolbar>
+                <ion-tabs>
+                  <ion-tab-bar slot="bottom">
+                    
+                    <ion-tab-button (click)="openReference()">
+                     
+                      <ion-label> Reference </ion-label>
+                     
+                    </ion-tab-button>
+            
+                    <ion-tab-button (click)="openProduits()">
+                      
+                      <ion-label>Prouduits</ion-label>
+                    </ion-tab-button>
+            
+                    <ion-tab-button (click)="openNegocier()">
+                      
+                      <ion-label>Negocier</ion-label>
+                      <ion-progress-bar value=""></ion-progress-bar>
+                    </ion-tab-button>
+                  </ion-tab-bar>
+                
+                </ion-tabs>
+              </ion-toolbar>
+        </ion-card>
+     
+    </ion-card>
+    <ion-list>
+      <ion-label>
+        <ion-item>
+          <img src="assets/img/prospero.png" alt="" >
+          <p text-center>J'ai besoin de 15 kolo sur la chaussure Nike la  </p>
+        </ion-item>
+      </ion-label>  
+      <ion-label>
+        <ion-item>
+          <img src="assets/img/prospero.png" alt="" >
+          <p text-center>J'ai besoin de 15 kolo sur la chaussure Nike la  </p>
+        </ion-item>
+      </ion-label> 
+      <ion-label>
+        <ion-item>
+          <img src="assets/img/prospero.png" alt="" >
+          <p text-center>J'ai besoin de 15 kolo sur la chaussure Nike la  </p>
+        </ion-item>
+      </ion-label> 
+      <ion-label>
+        <ion-item>
+          <img src="assets/img/prospero.png" alt="" >
+          <p text-center>J'ai besoin de 15 kolo sur la chaussure Nike la  </p>
+        </ion-item>
+      </ion-label> 
+      <ion-label>
+        <ion-item>
+          <img src="assets/img/prospero.png" alt="" >
+          <p text-center>J'ai besoin de 15 kolo sur la chaussure Nike la  </p>
+        </ion-item>
+      </ion-label> 
+      <ion-label>
+        <ion-item>
+          <img src="assets/img/prospero.png" alt="" >
+          <p text-center>J'ai besoin de 15 kolo sur la chaussure Nike la  </p>
+        </ion-item>
+      </ion-label> 
+      <ion-label>
+        <ion-item>
+          <img src="assets/img/prospero.png" alt="" >
+          <p text-center>J'ai besoin de 15 kolo sur la chaussure Nike la  </p>
+        </ion-item>
+      </ion-label> 
+    </ion-list>
+    <ion-input placeholder="Message"></ion-input>
+    
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button (click)="openBoutiques()">
+            <ion-icon name="basket"></ion-icon>
+            <ion-label>Boutiques</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button (click)="openHome()">
+            <ion-icon name="home"></ion-icon>
+            <ion-label>Accueil</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button (click)="openReglages()">
+            <ion-icon name="settings"></ion-icon>
+            <ion-label>Reglages</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      
+      </ion-tabs>
+    </ion-toolbar>
+  </ion-footer>

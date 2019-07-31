@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar color="">
+        <ion-tabs>
+
+            <ion-tab-bar slot="top">
+              <ion-menu-button color="primary"></ion-menu-button>
+              <ion-tab-button (click)="openCompte()">
+                <ion-icon name="person"></ion-icon>
+              </ion-tab-button>
+          
+             <ion-tab-button (click)="openCart()">
+                  <ion-icon name="cart"></ion-icon>
+              </ion-tab-button>
+            
+              <ion-tab-button (click)="openSwitch()">
+                <ion-icon name="switch"></ion-icon>
+              </ion-tab-button>
+            </ion-tab-bar>
+          
+          </ion-tabs> 
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding="">
+    <p><b><strong><h1 text-center>DIGISHOP</h1></strong></b></p>  
+    <h6 text-center><strong>Achetez en lignes dans vos boutiques préférées.</strong></h6>
+    <ion-searchbar (ionInput)="filterBoutiques($event.target.value)"></ion-searchbar>
+ 
+  <ion-card>  
+      <div  id="boutiques" >
+                <ion-card >
+                
+                        <ion-item *ngFor="let boutique of boutiques" [routerLink]="['./', boutique.idBoutique]">
+                            <ion-label>
+                                  
+                                        <strong>{{boutique.nomBoutique}}</strong>
+                                        <img src="{{ boutique.image }}" alt="">
+                                      
+                                         <p> <strong>{{boutique.adressBoutique}}</strong></p>
+                                          <p><strong>Contact:{{boutique.telephoneBoutique}}</strong></p>
+                                     
+                            </ion-label>
+                        </ion-item>
+                    
+                </ion-card>   
+              
+      </div>
+  </ion-card>
+  
+</ion-content>

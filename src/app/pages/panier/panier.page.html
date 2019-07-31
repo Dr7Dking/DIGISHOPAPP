@@ -1,0 +1,28 @@
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Mon Panier</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let item of selectedItems" lines="inset">
+        {{ item.count }}x {{ item.nomProduit }} - {{ item.prixPubliProduit | currency:'FCFA':'symbol' }}
+        <ion-label slot="end" text-right>{{ (item.prixPubliProduit * item.count) | currency:'FCFA':'symbol' }}</ion-label>
+        <ion-select >
+            <ion-select-option value="D">EDIT</ion-select-option>
+            <ion-select-option value="Y">REMOVE</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+        Total: <span slot="end">{{ total | currency:'FCFA':'symbol' }}</span>
+      </ion-item>
+    </ion-list>
+    <h1 text-center>
+        <ion-button color="success" default="true" (click)="openPayments()">Commander</ion-button>
+    </h1>
+    
+  </ion-content>

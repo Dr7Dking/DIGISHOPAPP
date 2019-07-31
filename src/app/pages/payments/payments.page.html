@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>My Payment</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   
+  <ion-content padding="">
+    <ion-list>
+      <ion-card>
+          <ion-item (click)="openResultat()">
+              <ion-label>
+                <h2><strong>Payez à la livraison</strong></h2>
+                <img src="assets/img/livraisoncash.png" alt="">
+              </ion-label>
+            </ion-item>
+      </ion-card>
+  
+      <ion-card>
+          <ion-item (click)="openmomo()">
+              <ion-label>
+                <h2><strong>Payez par Mobile Money</strong></h2>
+                <img src="assets/img/mtn.png" alt="">
+              </ion-label>
+            </ion-item>
+      </ion-card>
+  
+      <ion-card>     
+      <ion-item (click)="openPayment()">
+          <ion-label>
+            <h2><strong>Payez par Orange Money</strong></h2>
+            <img src="assets/img/orange.png" alt="">
+          </ion-label>
+        </ion-item>
+      </ion-card>
+  
+      <ion-card>     
+          <ion-item (click)="openPaypal()">
+              <ion-label>
+                <h2><strong>Payez par Paypal</strong></h2>
+                <img src="assets/img/paypalp.png" alt="">
+              </ion-label>
+            </ion-item>
+      </ion-card>
+      
+  
+  <ion-card>
+      
+      <ion-item (click)="openPayment()">
+        <ion-label>
+          <h2><strong>Payez par Carte Bancaire</strong></h2>
+          <img src="assets/img/carteb.png" alt="">
+        </ion-label>
+      </ion-item>
+  </ion-card>
+  <ion-card>
+      <ion-item (click)="openPayment()">
+        <ion-label>
+          <h2><strong>Payez en Bitcoin</strong></h2>
+          <img src="assets/img/bitcoin.png" alt="">
+        </ion-label>
+      </ion-item>
+  </ion-card>
+    </ion-list>
+  
+  </ion-content>

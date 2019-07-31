@@ -1,0 +1,59 @@
+
+<ion-header>
+    <ion-toolbar color="">
+        <ion-tabs>
+
+            <ion-tab-bar slot="top">
+              <ion-menu-button color="primary"></ion-menu-button>
+              <ion-tab-button (click)="openAccount()">
+                <ion-icon name="person"></ion-icon>
+              </ion-tab-button>
+          
+             <ion-tab-button (click)="openCart()">
+                  <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+                  <ion-icon name="cart"></ion-icon>
+              </ion-tab-button>
+            
+              <ion-tab-button (click)="openSwitch()">
+                <ion-icon name="switch"></ion-icon>
+              </ion-tab-button>
+            </ion-tab-bar>
+          
+          </ion-tabs> 
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   
+    <ion-card>
+        
+                  
+        <ion-card-header>
+                <ion-card-title>
+                
+                <p text-center>  {{ p.nomProduit }} - ${{ p.prixPubliProduit }}</p>
+                </ion-card-title>
+                <ion-card-content >
+                 <ion-button text-center expand="full" (click)="addToFavory()">Add to Favory</ion-button>
+                  <ion-slides autoplay="300" pager>
+                      <ion-slide *ngFor = "let number of [1,2,3,4]"> 
+                        <img src="./assets/images/{{number}}.png" />
+                      </ion-slide>
+                  </ion-slides>
+                  <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                   <ion-button expand="full" (click)="commander()">Commander</ion-button>
+                </ion-card-content>
+        </ion-card-header>
+    
+    </ion-card> 
+    <ion-card   >
+              <p text-center>Produits associes</p>
+              <ion-slides  autoplay="5000" loop="true" speed="300" pager="true" display="flex" flex-direction="column" width="100%">
+                  <ion-slide *ngFor = "let number of [1,2,3,4]"> 
+                      <img src="./assets/images/{{number}}.png" />
+                  </ion-slide>
+              </ion-slides>
+    
+    </ion-card>
+</ion-content>

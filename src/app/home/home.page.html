@@ -1,14 +1,69 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-tabs>
+        <ion-tab-bar slot="top">   
+        
+        <ion-tab-button (click)="openCart()">
+            <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+            <ion-icon name="cart"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="openCompte()">
+            <ion-icon name="person"></ion-icon>
+        </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs> 
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+
+<ion-content padding=''>
+    <p><b><strong><h1 text-center>DIGISHOP</h1></strong></b></p>
+    <ion-searchbar (ionInput)="filterBoutiques($event.target.value)"></ion-searchbar>
+ 
+    <h6 text-center>Digishop disponible en: <a href="#">English</a></h6>
+    <ion-card>  
+        <div  id="boutiques" >
+                  <ion-card >
+                  
+                          <ion-item *ngFor="let boutique of boutiques" [routerLink]="['./', boutique.idBoutique]">
+                              <ion-label>
+                                    
+                                          <strong>{{boutique.nomBoutique}}</strong>
+                                          <img src="{{ boutique.image }}" alt="">
+                                        
+                                           <p> <strong>{{boutique.adressBoutique}}</strong></p>
+                                            <p><strong>Contact:{{boutique.telephoneBoutique}}</strong></p>
+                                       
+                              </ion-label>
+                          </ion-item>
+                      
+                  </ion-card>   
+                
+        </div>
+    </ion-card>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button (click)="openBoutiques()">
+          <ion-icon name="basket"></ion-icon>
+          <ion-label>Boutiques</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button (click)="openHome()">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Accueil</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button (click)="openParametres()">
+          <ion-icon name="settings"></ion-icon>
+          <ion-label>Parametres</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

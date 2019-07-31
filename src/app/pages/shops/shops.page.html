@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-toolbar color="">
+        <ion-tabs>
+
+            <ion-tab-bar slot="top">
+              <ion-menu-button color="primary"></ion-menu-button>
+              <ion-tab-button (click)="openAccount()">
+                <ion-icon name="person"></ion-icon>
+              </ion-tab-button>
+          
+             <ion-tab-button (click)="openCart()">
+                  <ion-icon name="cart"></ion-icon>
+              </ion-tab-button>
+            
+              <ion-tab-button (click)="openSwitch()">
+                <ion-icon name="switch"></ion-icon>
+              </ion-tab-button>
+            </ion-tab-bar>
+          
+          </ion-tabs> 
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding="">
+  <h6 text-center><strong>Achetez en lignes dans vos boutiques préférées.</strong></h6>
+    <ion-searchbar (ionInput)="filterBoutiques($event.target.value)"></ion-searchbar>
+ 
+    <ion-card>  
+     
+      <div  id="boutiques" >
+                  <ion-card *ngFor="let boutique of boutiques">
+                  
+                          <ion-item  (click)="openShop(boutique.idBoutique)">
+                              <ion-label>
+                                    
+                                          <strong>{{boutique.nomBoutique}}</strong>
+                                          <img src="{{ boutique.image }}" alt="">
+                                        
+                                           <p> <strong>{{boutique.adressBoutique}},hotel de France</strong></p>
+                                            <p><strong>Contact:{{boutique.telephoneBoutique}}</strong></p>
+                                       
+                              </ion-label>
+                          </ion-item>
+                      
+                  </ion-card>   
+                
+      </div>
+    </ion-card>
+
+  </ion-content>
+  
+  <ion-footer>
+      <ion-toolbar>
+        <ion-tabs>
+          <ion-tab-bar slot="bottom">
+            <ion-tab-button (click)="openShops()">
+              <ion-icon name="basket"></ion-icon>
+              <ion-label>Boutiques</ion-label>
+            </ion-tab-button>
+        
+            <ion-tab-button (click)="openHome()">
+              <ion-icon name="home"></ion-icon>
+              <ion-label>Accueil</ion-label>
+            </ion-tab-button>
+        
+            <ion-tab-button (click)="openReglages()">
+              <ion-icon name="settings"></ion-icon>
+              <ion-label>Reglages</ion-label>
+            </ion-tab-button>
+          </ion-tab-bar>
+        
+        </ion-tabs>
+      </ion-toolbar>
+    </ion-footer>
+  
